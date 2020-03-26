@@ -1,0 +1,24 @@
+.checkbox-container label {
+	position: relative;
+	cursor: pointer;
+}
+
+.checkbox-container label input {
+	position: absolute;
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+.checkmark {
+	display: inline-block;
+	border-radius: 5px;
+	box-sizing: border-box;
+	padding: 0 6px;
+	height: 25px;
+}
+
+.checkbox-container label input:checked ~ .checkmark {
+	transform: translateY(4px);
+	box-shadow: none;
+}

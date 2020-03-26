@@ -1,0 +1,37 @@
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 3;
+}
+
+.modal .modal-container {
+	background: rgba(255,255,255, .8);
+	height: 100vh;
+	width: 100vw;
+}
+
+.modal .modal-container .modal-close-container {
+	width: 99%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.modal .modal-container .modal-close-container button.close-btn {
+	border: none;
+	background: none;
+	font-size: 20px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.modal .modal-container .modal-close-container button.close-btn:hover {
+	color: rgb(200,0,0);
+}
+
+.modal .modal-container .modal-content {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}

@@ -1,0 +1,18 @@
+.load-animation {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+.load-animation div {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 6px solid #C8C8C8;
+	border-top: 6px solid #8B94F8;
+	animation: load 1s linear infinite;
+}
+
+@keyframes load {
+	0% {transform: rotate(0deg)}
+	100% {transform: rotate(360deg)}
+}
