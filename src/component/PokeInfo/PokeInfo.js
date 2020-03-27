@@ -37,7 +37,7 @@ export class PokeInfo extends React.Component {
     	if (!this.state.loading) {
         return (
         	<div className="pokemon">
-        		<div class="img-container">
+        		<div className="img-container">
         			<img src={pokemon.sprites.front_default} alt={pokemon.sprites.front_default} />
         		</div>
         		<div className="pokemon-info">
@@ -45,7 +45,11 @@ export class PokeInfo extends React.Component {
         				<h2>{pokemon.name}</h2>
         			</div>
         			<div className="pokemon-types">
-        				{pokemon.types.map(val => <span className={'type ' + val.type.name}>{val.type.name}</span>)}
+        				{pokemon.types.map(val => 
+                            <span className={'type ' + val.type.name} key={'type'+val.type.name}>
+                                {val.type.name}
+                            </span>
+                        )}
         			</div>
                     <h4>Body data</h4>
         			<div className="pokemon-body">
@@ -54,12 +58,23 @@ export class PokeInfo extends React.Component {
         			</div>
                     <h4>Moves</h4>
         			<div className="pokemon-moves">
-        				{pokemon.moves.map(val => <span className="move">{val.move.name}</span>)}
+        				{pokemon.moves.map((val, idx) => 
+                            <span className="move" key={'move'+idx}>
+                                {val.move.name}
+                            </span>
+                        )}
         			</div>
                     <h4>Stats</h4>
         			<div className="pokemon-stats">
         				<table>
-        					{pokemon.stats.map(val => <tr><td>{val.stat.name}</td><td>{val.base_stat}</td></tr>)}
+                            <tbody>
+        					   {pokemon.stats.map((val,idx) => 
+                                    <tr key={'tr'+idx}>
+                                        <td>{val.stat.name}</td>
+                                        <td>{val.base_stat}</td>
+                                    </tr>
+                                )}
+                            </tbody>
         				</table>
         			</div>
         		</div>
