@@ -107,7 +107,7 @@ class App extends React.Component {
         let pokemon = [...this.state.data];
         pokemon = pokemon.filter(val => pattern.test(val.name))
         clearTimeout(this.timeout)
-        this.timeout = setTimeout(function() {this.setState({pokemon:pokemon})}.bind(this), 1000)
+        this.timeout = setTimeout(function() {this.setState({pokemon:pokemon, limit:20})}.bind(this), 1000)
     }
 
     handleCheckboxChange(e) {
