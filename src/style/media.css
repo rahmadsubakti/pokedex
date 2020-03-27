@@ -1,0 +1,47 @@
+@media screen and (max-width: 1120px) {
+  .filter-btn-group {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .filter-btn-group {
+    height: 100px;
+  }
+  .pokemon .pokemon-moves {
+    justify-content: center;
+  }
+  .pokemon .pokemon-moves > span.move {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .filter-btn-group {
+    height: 140px;
+  }
+  .card {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 30%;
+  }
+  .pokemon .pokemon-moves {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .card {
+    width: 50%;
+  }
+}

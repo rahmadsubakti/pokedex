@@ -76,4 +76,5 @@ main .main-content {
 
 .btn-group button[disabled], .btn-group button[disabled]:hover {
   background: #9D9CF4;
+  cursor: auto;
 }

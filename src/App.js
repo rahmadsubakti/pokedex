@@ -6,6 +6,7 @@ import { Modal } from 'component/Modal/Modal'
 import { PokeInfo } from 'component/PokeInfo/PokeInfo'
 import { LoadAnimation } from 'component/LoadAnimation/LoadAnimation'
 import './App.css';
+import 'style/media.css';
 
 class App extends React.Component {
     constructor(props) {

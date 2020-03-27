@@ -32,7 +32,8 @@
 }
 
 .card button {
-	width: 30%;
+	/*width: 30%;*/
+	min-width: 60px;
 	padding: 7px 0;
 	border: none;
 	cursor: pointer;
