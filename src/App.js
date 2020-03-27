@@ -8,6 +8,12 @@ import { LoadAnimation } from 'component/LoadAnimation/LoadAnimation'
 import './App.css';
 import 'style/media.css';
 
+// Bug occured when typing in search box too fast
+// Causing pokemons whose name that does not match with word in search box
+// appeared as search result
+// Warning message advised to make this interaction asynchronous tasks
+// in componentWillUnmount (it might refer to card or handleChange)
+
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -19,14 +25,13 @@ class App extends React.Component {
             current: '',
             showModal: false,
             limit: 20,
-            filter: '',
             loading: true,
         }
-        this.value = '';
+        this.timeout = null;
         this.fetchAPI = this.fetchAPI.bind(this);
         this.fetchType = this.fetchType.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
         this.filterPokemonByType = this.filterPokemonByType.bind(this)
     }
 
@@ -72,7 +77,6 @@ class App extends React.Component {
         if (this.state.next !== null) {
             this.fetchAPI(this.state.next);
         }
-        this.value = '';
     }
 
     handleClick(e) {
@@ -98,12 +102,12 @@ class App extends React.Component {
         }
     }
 
-    handleChange(e) {
-        this.value = e.target.value;
+    handleKeyUp(e) {
         const pattern = new RegExp(e.target.value, 'i');
         let pokemon = [...this.state.data];
         pokemon = pokemon.filter(val => pattern.test(val.name))
-        this.setState({ pokemon: pokemon, limit: 20 });
+        clearTimeout(this.timeout)
+        this.timeout = setTimeout(function() {this.setState({pokemon:pokemon})}.bind(this), 1000)
     }
 
     handleCheckboxChange(e) {
@@ -130,8 +134,7 @@ class App extends React.Component {
                 <input 
                   type="text" 
                   placeholder="Search pokemon(s)" 
-                  onChange={this.handleChange} 
-                  value={this.value} 
+                  onKeyUp={this.handleKeyUp}
                 />
               </header>
               <div className="filter-btn-group">
