@@ -50,7 +50,7 @@ export class Card extends React.Component {
         if (this.state.matchType) {
             if (!this.state.loading) {
                 return (
-                    <div className="card" value={this.props.url} onClick={this.props.onClick}>
+                    <div className="card">
 						<div className="img-container">
 							<img src={this.state.sprites} alt={this.state.name} />
 						</div>

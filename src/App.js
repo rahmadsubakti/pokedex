@@ -8,12 +8,6 @@ import { LoadAnimation } from 'component/LoadAnimation/LoadAnimation'
 import './App.css';
 import 'style/media.css';
 
-// Bug occured when typing in search box too fast
-// Causing pokemons whose name that does not match with word in search box
-// appeared as search result
-// Warning message advised to make this interaction asynchronous tasks
-// in componentWillUnmount (it might refer to card or handleChange)
-
 class App extends React.Component {
     constructor(props) {
         super(props)
